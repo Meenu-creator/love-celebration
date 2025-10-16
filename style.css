@@ -1,0 +1,82 @@
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-purple: #8A2BE2; --secondary-purple: #9370DB; --accent-purple: #DA70D6;
+            --light-purple: #E6E6FA; --dark-purple: #4B0082; --text-color: #2C0033;
+        }
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(135deg, #FF69B4, #FF1493, #DB7093); }
+            50% { background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple), var(--accent-purple)); }
+            100% { background: linear-gradient(135deg, #FF69B4, #FF1493, #DB7093); }
+        }
+
+        body {
+            animation: backgroundAnimation 10s infinite;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh; display: flex; justify-content: center; align-items: center;
+            color: var(--text-color); overflow-x: hidden; padding: 20px;
+        }
+        .container {
+            width: 100%; max-width: 1000px; background: rgba(255,255,255,0.95);
+            border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.25); overflow: hidden;
+            position: relative; backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.2);
+        }
+        #celebration {
+            animation: backgroundAnimation 10s infinite;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            display:flex; justify-content:center; align-items:center; z-index:1000; transition: opacity 1s ease;
+        }
+        .celebration-content { text-align:center; color:white; padding:20px; }
+        .celebration-content h1 { font-family:'Dancing Script', cursive; font-size:3.2rem; margin-bottom:10px; }
+        .language-selector {
+            display:flex; flex-wrap:wrap; gap:8px; padding:12px; background: rgba(255,255,255,0.9);
+            justify-content:center; max-height:220px; overflow:auto; border-bottom:1px solid var(--light-purple);
+        }
+        .language-btn {
+            padding:8px 12px; border-radius:999px; background:var(--secondary-purple); color:white;
+            border:none; cursor:pointer; font-weight:600; font-size:0.85rem; white-space:nowrap;
+            box-shadow:0 4px 10px rgba(0,0,0,0.08);
+        }
+        .language-btn:hover { background:var(--primary-purple); transform:translateY(-2px); }
+        .language-btn.active { background: var(--dark-purple); transform: translateY(-2px); }
+        .header { padding:22px; text-align:center; background:linear-gradient(90deg,var(--primary-purple),var(--secondary-purple)); color:white; }
+        .header h1 { font-family:'Dancing Script', cursive; font-size:1.9rem; }
+        .wish-container { padding:20px; min-height:220px; display:flex; align-items:flex-start; justify-content:center; }
+        .wish-content {
+            max-width:900px; background:rgba(255,255,255,0.95); padding:18px; border-radius:12px; color:var(--text-color);
+            box-shadow:0 8px 18px rgba(0,0,0,0.06);
+        }
+        .wish-content h2 { color:var(--primary-purple); margin-bottom:10px; font-size:1.3rem; }
+        .wish-content p { line-height:1.6; }
+        .footer { padding:14px; text-align:center; background:rgba(255,255,255,0.9); border-top:1px solid var(--light-purple); }
+        /* small scrollbar for selector */
+        .language-selector::-webkit-scrollbar { height:8px; }
+        .language-selector::-webkit-scrollbar-thumb { background:var(--secondary-purple); border-radius:6px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: white;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        #closeIntro {
+            transition: opacity 0.5s ease;
+        }
+
+        @media (max-width:768px) {
+            .celebration-content h1 { font-size:2rem; }
+            .header h1 { font-size:1.5rem; }
+            .language-selector { max-height:160px; }
+        }
